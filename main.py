@@ -71,9 +71,10 @@ def handle_updates(updates):
 
 def arr():
     from datetime import datetime, timedelta
-    date = str(datetime.now().date())
+    #date = str(datetime.now().date())
     #time = (datetime.now() + timedelta(hours=8)).time().strftime('%H:%M:%S')
     tz = pytz.timezone('Asia/Singapore')
+    date = str(datetime.now(tz).date())
     time = str(datetime.now(tz).time())
     
     f = open("userName.txt", "r")
