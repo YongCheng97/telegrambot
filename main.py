@@ -41,10 +41,10 @@ def handle_updates(updates):
         items = ["Clock in", "Clock out"]
         if text == "/start": 
             send_message("Welcome to learnseeker! Please type /command to clock-in or clock-out", chat)
-        if text == "/command":
+        elif text == "/command":
             keyboard = build_keyboard(items)
             send_message("Please choose an option", chat, keyboard)
-        if text == "Clock in":
+        elif text == "Clock in":
             f = open("userName.txt", "w")
             f.write(str(message["from"]["first_name"].encode("utf-8")))
             f.close()
