@@ -12,7 +12,7 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
 # The ID and range of a sample spreadsheet.
 spreadsheet_id = '1Xvfrph-td1ScQnavx9a8caDMYnugOM9bQ_1h0rujZ_A'
-range_ = 'October2019!A2:E6'
+range_ = 'September2019!A2:E6'
 
 # How the input data should be interpreted.
 value_input_option = 'RAW'  # TODO: Update placeholder value.
@@ -23,7 +23,7 @@ insert_data_option = 'INSERT_ROWS'  # TODO: Update placeholder value.
 def generateBody():
     value_range_body = {
         # TODO: Add desired entries to the request body.
-        "range": 'October2019!A2:E6',
+        "range": 'September2019!A2:E6',
         "majorDimension": 'ROWS',
         "values": [
             botmain.arr()

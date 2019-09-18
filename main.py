@@ -3,6 +3,7 @@ import requests
 import time
 import urllib
 import telegram
+import pytz
 import quickstart as qs
 
 TOKEN = "882567029:AAHiVaS_Th6XtfKR1Czg5y6eg7tsqy433ow"
@@ -69,9 +70,12 @@ def handle_updates(updates):
             send_message("Goodbye!", chat)
 
 def arr():
-    from datetime import datetime
+    from datetime import datetime, timedelta
     date = str(datetime.now().date())
-    time = str(datetime.now().time())
+    #time = (datetime.now() + timedelta(hours=8)).time().strftime('%H:%M:%S')
+    tz = pytz.timezone('Asia/Singapore')
+    time = str(datetime.now(tz).time())
+    
     f = open("userName.txt", "r")
     name = f.read()
     f= open("clock.txt", "r")
