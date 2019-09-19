@@ -4,6 +4,7 @@ import time
 import urllib
 import telegram
 import pytz
+import gspread
 import quickstart as qs
 
 TOKEN = "882567029:AAHiVaS_Th6XtfKR1Czg5y6eg7tsqy433ow"
@@ -61,13 +62,16 @@ def handle_updates(updates):
             f = open("clock.txt", "w")
             f.write("Clock-out")
             f.close()
-            send_message("What did you do today? :) (Optional)", chat)
-        else : 
+            send_message("If you wish to input the work you have done today, please type / followed by the work you completed today! If not, you can just type / ", chat) 
+        elif text[0:1] == "/":
             f = open("activities.txt", "w")
             f.write(text)
             f.close()
             qs.main()
             send_message("Goodbye!", chat)
+        else:
+            send_message("Incorrect message! Please try again.", chat)
+    
 
 def arr():
     from datetime import datetime, timedelta
@@ -115,7 +119,7 @@ def main():
     last_update_id = None
     while True:
         updates = get_updates(last_update_id)
-        if len(updates["result"]) > 0:
+        if "result" in updates and len(updates["result"]) > 0:
             last_update_id = get_last_update_id(updates) + 1
             handle_updates(updates)
         time.sleep(0.5)
