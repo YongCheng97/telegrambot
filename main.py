@@ -65,7 +65,7 @@ def handle_updates(updates):
             send_message("If you wish to input the work you have done today, please type / followed by the work you completed today! If not, you can just type /  E.g. '/ I coded an application today' ", chat) 
         elif text[0:1] == "/":
             f = open("activities.txt", "w")
-            f.write(text)
+            f.write(text[2:1000])
             f.close()
             qs.main()
             send_message("Goodbye!", chat)
