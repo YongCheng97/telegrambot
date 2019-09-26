@@ -62,7 +62,7 @@ def handle_updates(updates):
             f = open("clock.txt", "w")
             f.write("Clock-out")
             f.close()
-            send_message("If you wish to input the work you have done today, please type / followed by the work you completed today! If not, you can just type / ", chat) 
+            send_message("If you wish to input the work you have done today, please type / followed by the work you completed today! If not, you can just type /  E.g. '/ I coded an application today' ", chat) 
         elif text[0:1] == "/":
             f = open("activities.txt", "w")
             f.write(text)
